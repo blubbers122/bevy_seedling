@@ -67,7 +67,9 @@ bevy_reflect = { version = "0.20.0", default-features = false, features = [
 bevy_utils = { version = "0.20.0", default-features = false }
 bevy_diagnostic = { version = "0.20.0", default-features = false, optional = true }
 
-firewheel = { version = "0.12.0", default-features = false, features = [
+# Vendored Firewheel 0.12, patched for Bevy 0.20. A path dependency is
+# visible to downstream crates; a [patch] table in this package is not.
+firewheel = { path = "third_party/firewheel/firewheel", default-features = false, features = [
   "bevy",
   "spatial_basic_node",
   "scheduled_events",
@@ -99,7 +101,7 @@ firewheel-web-audio = { version = "0.5.0", path = "crates/firewheel-web-audio", 
 audioadapter-buffers = { version = "4.0", default-features = false, optional = true }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
-firewheel = { version = "0.12.0", features = ["wasm-bindgen"] }
+firewheel = { path = "third_party/firewheel/firewheel", features = ["wasm-bindgen"] }
 
 [dev-dependencies]
 bevy_seedling = { path = ".", features = [
@@ -108,7 +110,7 @@ bevy_seedling = { path = ".", features = [
   "resample_inputs",
   "effects",
 ] }
-firewheel = { version = "0.12.0", default-features = false, features = [
+firewheel = { path = "third_party/firewheel/firewheel", default-features = false, features = [
   "fast_filter_nodes",
 ] }
 bevy = { version = "0.20.0", default-features = false, features = [
@@ -146,14 +148,3 @@ required-features = ["profiling"]
 
 [package.metadata.docs.rs]
 all-features = true
-
-# Firewheel 0.12 has no Bevy 0.20 release. These crates are the published
-# 0.12.0 sources with Bevy 0.20, glam 0.33, and the reflect impl fixes applied.
-[patch.crates-io]
-firewheel-core = { path = "../firewheel-0.12-bevy020/firewheel-core-0.12.0" }
-firewheel-graph = { path = "../firewheel-0.12-bevy020/firewheel-graph-0.12.1" }
-firewheel-nodes = { path = "../firewheel-0.12-bevy020/firewheel-nodes-0.12.2" }
-firewheel-macros = { path = "../firewheel-0.12-bevy020/firewheel-macros-0.12.0" }
-firewheel-cpal = { path = "../firewheel-0.12-bevy020/firewheel-cpal-0.12.0" }
-firewheel-rtaudio = { path = "../firewheel-0.12-bevy020/firewheel-rtaudio-0.12.0" }
-firewheel-symphonium = { path = "../firewheel-0.12-bevy020/firewheel-symphonium-0.12.0" }

@@ -14,7 +14,7 @@ categories = ["game-development", "multimedia::audio"]
 
 [dependencies]
 log = "0.4"
-firewheel = { version = "0.12.0", default-features = false, features = [
+firewheel = { path = "../../third_party/firewheel/firewheel", default-features = false, features = [
   "std",
 ] }
 js-sys = { version = "0.3.77", default-features = false }

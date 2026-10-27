@@ -1,3 +1,17 @@
+# Unreleased
+
+## Changes
+
+### Bevy 0.20
+
+Updated the engine integration to Bevy 0.20.
+
+Lifecycle observers now take the watched component on the event itself.
+`EffectsQuery::iter_effects` and `iter_effects_mut` skip entities that do not match the query.
+
+Firewheel has not published a Bevy 0.20 release, so this build patches the 0.12.0 crates
+(Bevy 0.20, glam 0.33, and the `Notify` reflect impl).
+
 # 0.8.0
 
 ## Changes

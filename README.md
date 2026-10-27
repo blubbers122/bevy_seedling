@@ -24,7 +24,7 @@ manually!
 ```toml
 [dependencies]
 bevy_seedling = "0.8.0"
-bevy = { version = "0.19.0", default-features = false, features = [
+bevy = { version = "0.20.0", default-features = false, features = [
   # 2d
   "2d_bevy_render",
   "default_app",
@@ -37,6 +37,7 @@ bevy = { version = "0.19.0", default-features = false, features = [
   # ui
   "ui_api",
   "ui_bevy_render",
+  "bevy_ui_widgets",
 
   # default_platform
   "android-game-activity",
@@ -117,6 +118,7 @@ should help you get up to speed on common usage patterns.
 
 | `bevy` | `bevy_seedling` |
 | ------ | --------------- |
+| 0.20   | main            |
 | 0.19   | 0.8             |
 | 0.18   | 0.7             |
 | 0.17   | 0.6             |
